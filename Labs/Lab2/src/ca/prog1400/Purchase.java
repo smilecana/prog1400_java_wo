@@ -1,3 +1,7 @@
+// Lab2
+// Woojin Oh
+// Jan. 10, 2019
+
 package ca.prog1400;
 
 import java.util.Scanner;
