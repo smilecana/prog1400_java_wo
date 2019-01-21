@@ -9,11 +9,21 @@ public class Food {
         this.foodType = inputFoodType;
     }
 
+    /*
     public void eatIt() {
         System.out.println("You just ate the " + this.foodName);
     }
 
     public void denyIt() {
         System.out.println("Not eating that! I hate " + this.foodType + "!");
+    }
+    */
+
+    public String eatIt() {
+        return "You just ate the " + this.foodName;
+    }
+
+    public String denyIt() {
+        return "Not eating that! I hate " + this.foodType + "!";
     }
 }

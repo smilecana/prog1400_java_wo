@@ -4,6 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
 	    // write your code here
+
         Food[] picnicBasket = {
                 new Food("Hamburger", "Meat"),
                 new Food("Apple", "Fruit"),
@@ -13,10 +14,10 @@ public class Main {
         for (int i = 0; i < picnicBasket.length; i++) {
             Food currentFood = picnicBasket[i];
             if (currentFood.foodType == "Vegetable") {
-                currentFood.denyIt();
+                System.out.println(currentFood.denyIt());
             }
             else {
-                currentFood.eatIt();
+                System.out.println(currentFood.eatIt());
             }
         }
     }
