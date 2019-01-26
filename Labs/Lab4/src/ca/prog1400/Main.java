@@ -13,7 +13,7 @@ public class Main {
 
         for (int i = 0; i < picnicBasket.length; i++) {
             Food currentFood = picnicBasket[i];
-            if (currentFood.foodType == "Vegetable") {
+            if (currentFood.getType() == "Vegetable") {
                 System.out.println(currentFood.denyIt());
             }
             else {

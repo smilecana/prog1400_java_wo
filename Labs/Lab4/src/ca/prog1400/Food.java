@@ -26,4 +26,8 @@ public class Food {
     public String denyIt() {
         return "Not eating that! I hate " + this.foodType + "!";
     }
+
+    public String getType() {
+        return this.foodType;
+    }
 }

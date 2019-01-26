@@ -6,126 +6,98 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        // Array for storing team and player instances
-        Team[] teamArr = new Team[1];
-        Player[][] playerArr = new Player[1][4];
-
-        // Start program
+        Scanner sc = new Scanner(System.in);
+        // Array for storing team instances
+        Team[] teamArr = new Team[3];
         // Input team information
-        System.out.println("FANTASY HOCKEY APPLICATION");
-        System.out.println();
-        System.out.println("TEAM ENTRY");
-        System.out.println();
+        System.out.println("FANTASY HOCKEY APPLICATION\n");
+        System.out.println("TEAM ENTRY\n");
         System.out.println("==============================");
-        System.out.println();
         // Ask user input for 3 teams name
         for (int i = 0; i < teamArr.length; i++) {
             String userPromptedTeamName = null;
             // Validate for team name. If prompted team name's characters less than 3, ask input again.
             do {
-                System.out.println(String.format("Enter name for team # %d:", i + 1));
-                System.out.println();
-                userPromptedTeamName = scanner.nextLine();
-                if ((userPromptedTeamName.replaceAll(" " , "")).length() < 3) {
-                    System.out.println();
-                    System.out.println("Please enter a valid team name!");
-                    System.out.println();
+                System.out.println(String.format("\nEnter name for team # %d:\n", i + 1));
+                userPromptedTeamName = sc.nextLine();
+                if ((userPromptedTeamName.replaceAll(" ", "")).length() < 3) {
+                    System.out.println("\nPlease enter a valid team name!\n");
                 }
-            } while ((userPromptedTeamName.replaceAll(" " , "")).length() < 3);
-
-            System.out.println();
-            // Make random number between 0 and 100000 and assign it in the teamArr
+            } while ((userPromptedTeamName.replaceAll(" ", "")).length() < 3);
+            // Make random number between 0 and 100000
             Random random = new Random();
             double randomNumber = (0 + (100000 - 0)) * random.nextDouble();
             // Store team information in the teamArr
-            teamArr[i] = new Team(userPromptedTeamName, randomNumber);
+            teamArr[i] = new Team();
+            teamArr[i].setTeamName(userPromptedTeamName);
+            teamArr[i].setTeamBudget(randomNumber);
         }
         // Input player information
-        System.out.println();
-        System.out.println("PLAYER ENTRY");
-        System.out.println();
+        System.out.println("\nPLAYER ENTRY\n");
         System.out.println("==============================");
-        System.out.println();
         // Ask user input for 4 player information each teams
         for (int i = 0; i < teamArr.length; i++) {
-            System.out.println(String.format("Enter players for %s:", teamArr[i].teamName));
-            System.out.println();
-            for (int j = 0; j < playerArr[i].length; j++) {
+            teamArr[i].setPlayer(new Player[4]);
+            System.out.println(String.format("\nEnter players for %s:", teamArr[i].teamName));
+            for (int j = 0; j < teamArr[i].getPlayer().length; j++) {
                 String userPromptedPlayerName = null;
                 // Validate for player name. If prompted player name's characters less than 3, ask input again.
                 do {
-                    System.out.println(String.format("Enter name for player # %d:", j + 1));
-                    System.out.println();
-                    userPromptedPlayerName = scanner.nextLine();
-                    if ((userPromptedPlayerName.replaceAll(" " , "")).length() < 3) {
-                        System.out.println();
-                        System.out.println("Please enter a valid team name!");
-                        System.out.println();
+                    System.out.println(String.format("\nEnter name for player # %d:\n", j + 1));
+                    userPromptedPlayerName = sc.nextLine();
+                    if ((userPromptedPlayerName.replaceAll(" ", "")).length() < 3) {
+                        System.out.println("\nPlease enter a valid team name!\n");
                     }
-                } while ((userPromptedPlayerName.replaceAll(" " , "")).length() < 3);
+                } while ((userPromptedPlayerName.replaceAll(" ", "")).length() < 3);
                 int userPromptedGoals;
                 // Validate for player goals. If prompted player goals less than 0 or not a number, ask input again.
                 do {
-                    System.out.println();
-                    System.out.println(String.format("Enter number of goals for %s:", userPromptedPlayerName));
-                    System.out.println();
-                    while (!scanner.hasNextInt()) {
-                        System.out.println();
-                        System.out.println("Enter a integer number.");
-                        System.out.println();
-                        System.out.println(String.format("Enter number of goals for %s:", userPromptedPlayerName));
-                        System.out.println();
-                        scanner.next();
+                    System.out.println(String.format("\nEnter number of goals for %s:\n", userPromptedPlayerName));
+                    while (!sc.hasNextInt()) {
+                        System.out.println("\nEnter a integer number.\n");
+                        System.out.println(String.format("Enter number of goals for %s:\n", userPromptedPlayerName));
+                        sc.next();
                     }
-                    userPromptedGoals = scanner.nextInt();
+                    userPromptedGoals = sc.nextInt();
                     if (userPromptedGoals < 0) {
-                        System.out.println();
-                        System.out.println("Enter a positive number.");
+                        System.out.println("\nEnter a positive number.");
                     }
                 } while (userPromptedGoals < 0);
                 int userPromptedAssists;
                 // Validate for player assists. If prompted player assists less than 0 or not a number, ask input again.
                 do {
-                    System.out.println();
-                    System.out.println(String.format("Enter number of assists for %s:", userPromptedPlayerName));
-                    System.out.println();
-                    while (!scanner.hasNextInt()) {
-                        System.out.println();
-                        System.out.println("Enter a integer number.");
-                        System.out.println();
-                        System.out.println(String.format("Enter number of goals for %s:", userPromptedPlayerName));
-                        System.out.println();
-                        scanner.next();
+                    System.out.println(String.format("\nEnter number of assists for %s:\n", userPromptedPlayerName));
+                    while (!sc.hasNextInt()) {
+                        System.out.println("\nEnter a integer number.\n");
+                        System.out.println(String.format("Enter number of goals for %s:\n", userPromptedPlayerName));
+                        sc.next();
                     }
-                    userPromptedAssists = scanner.nextInt();
+                    userPromptedAssists = sc.nextInt();
                     if (userPromptedAssists < 0) {
-                        System.out.println();
-                        System.out.println("Enter a positive number.");
+                        System.out.println("\nEnter a positive number.");
                     }
                 } while (userPromptedAssists < 0);
-                scanner.nextLine();
-                System.out.println();
-                // Store player information in the playerArr
-                playerArr[i][j] =  new Player(teamArr[i].teamName, userPromptedPlayerName, userPromptedGoals, userPromptedAssists);
+                sc.nextLine();
+                // Store player information in the teanmArr
+                teamArr[i].getPlayer()[j] = new Player(userPromptedPlayerName, userPromptedGoals, userPromptedAssists);
             }
         }
 
-        //Output start
-        System.out.println("REPORT: Stats per Team");
+        // Output
+        // Report stats per team
+        System.out.println("\nREPORT: Stats per Team\n");
         System.out.println("==============================");
+        // Call the outputTeamDetails function to display output of each team
         for (int i = 0; i < teamArr.length; i++) {
-            // Call the outputTeamDetails function to display output of each team
-            teamArr[i].outputTeamDetails(playerArr[i]);
+            teamArr[i].outputTeamDetails();
         }
-        System.out.println();
-        System.out.println("REPORT: Stats per Player");
+        // Report stats per player
+        System.out.println("\n\nREPORT: Stats per Player\n");
         System.out.println("==============================");
-        for (int i = 0; i < playerArr.length; i++) {
-            for (int j = 0; j < playerArr[i].length; j++) {
-                // Call the outputPlayerDetails function to display output of each player
-                playerArr[i][j].outputPlayerDetails();
+        // Call the outputPlayerDetails function to display output of each player
+        for (int i = 0; i < teamArr.length; i++) {
+            for (int j = 0; j < teamArr[i].getPlayer().length; j++) {
+                teamArr[i].getPlayer()[j].outputPlayerDetails(teamArr[i].getTeamName());
             }
         }
     }
