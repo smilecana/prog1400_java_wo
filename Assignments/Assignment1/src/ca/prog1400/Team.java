@@ -1,5 +1,12 @@
 package ca.prog1400;
 
+/*
+    Author : Woojin Oh
+    Date : Jan. 28, 2019
+    Description : PROG1400 ASSIGNMENT 1 - Fantasy Hockey
+    File name : Team.java
+*/
+
 public class Team {
     // Variables or properties
     String teamName;
