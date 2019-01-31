@@ -15,8 +15,8 @@ public class Player {
     int playerToTalScores;
 
     // Constuctors
-    public Player(String inputTeamName, int inputPlayerGoals, int inputPlayerAssists) {
-        this.playerName = inputTeamName;
+    public Player(String inputPlayerName, int inputPlayerGoals, int inputPlayerAssists) {
+        this.playerName = inputPlayerName;
         this.playerGoals = inputPlayerGoals;
         this.playerAssists = inputPlayerAssists;
     }
