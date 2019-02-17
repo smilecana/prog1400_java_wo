@@ -2,15 +2,25 @@ package ca.prog1400;
 
 import java.util.ArrayList;
 
-public class Staff extends Person {
-    int serviceYear;
-    double staffPay = 50000;
+/*
+    Author : Woojin Oh
+    Date : Feb. 16, 2019
+    Description : PROG1400 ASSIGNMENT 2 - College Accounting Application
+    File name : Staff.java
+*/
 
+public class Staff extends Person {
+    // Variables or properties
+    private int serviceYear;
+    private double staffPay = 50000;
+
+    // Constructors
     public Staff(String personName, String personAddress, int serviceYear) {
         super(personName, personAddress);
         this.serviceYear = serviceYear;
     }
 
+    // get total outgoing
     public static String getOutgoing(ArrayList<Staff> staffs) {
         double staffOutgoing = 0;
 
@@ -25,6 +35,7 @@ public class Staff extends Person {
     }
 
     @Override
+    // get output string
     public String toString() {
         staffPay += 500 * this.serviceYear;
 

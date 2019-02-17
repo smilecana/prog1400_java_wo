@@ -3,6 +3,13 @@ package ca.prog1400;
 import javax.swing.*;
 import java.util.ArrayList;
 
+/*
+    Author : Woojin Oh
+    Date : Feb. 16, 2019
+    Description : PROG1400 ASSIGNMENT 2 - College Accounting Application
+    File name : Main.java
+*/
+
 public class Main {
 
     // function for validating student year

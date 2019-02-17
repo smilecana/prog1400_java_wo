@@ -2,15 +2,25 @@ package ca.prog1400;
 
 import java.util.ArrayList;
 
-public class Student extends Person {
-    int studentYear;
-    double studentFee = 3000;
+/*
+    Author : Woojin Oh
+    Date : Feb. 16, 2019
+    Description : PROG1400 ASSIGNMENT 2 - College Accounting Application
+    File name : Student.java
+*/
 
+public class Student extends Person {
+    // Variables or properties
+    private int studentYear;
+    private double studentFee = 3000;
+
+    // Constructors
     public Student(String personName, String personAddress, int studentYear) {
         super(personName, personAddress);
         this.studentYear = studentYear;
     }
 
+    // get total incoming
     public static String getIncoming(ArrayList<Student> students) {
         double studentIncoming = 0;
 
@@ -24,6 +34,7 @@ public class Student extends Person {
     }
 
     @Override
+    // get output string
     public String toString() {
         studentFee += 100 * (this.studentYear - 1);
 
