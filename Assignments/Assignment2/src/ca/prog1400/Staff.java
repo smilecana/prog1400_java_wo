@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /*
     Author : Woojin Oh
-    Date : Feb. 16, 2019
+    Date : Feb. 19, 2019
     Description : PROG1400 ASSIGNMENT 2 - College Accounting Application
     File name : Staff.java
 */
@@ -12,12 +12,15 @@ import java.util.ArrayList;
 public class Staff extends Person {
     // Variables or properties
     private int serviceYear;
-    private double staffPay = 50000;
+    private double staffPay;
+    private double staffBasicPay = 50000;
+    private double staffPayIncreaseByYear = 500;
 
     // Constructors
     public Staff(String personName, String personAddress, int serviceYear) {
         super(personName, personAddress);
         this.serviceYear = serviceYear;
+        this.staffPay = staffBasicPay + staffPayIncreaseByYear * serviceYear;
     }
 
     // get total outgoing
@@ -37,8 +40,6 @@ public class Staff extends Person {
     @Override
     // get output string
     public String toString() {
-        staffPay += 500 * this.serviceYear;
-
-        return String.format("name = %s, address = %s, years = %d, pay = $%.2f", super.getPersonName(), super.getPersonAddress(), this.serviceYear, staffPay);
+        return String.format("name = %s, address = %s, years = %d, pay = $%.2f", super.getPersonName(), super.getPersonAddress(), this.serviceYear, this.staffPay);
     }
 }

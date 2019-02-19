@@ -2,7 +2,7 @@ package ca.prog1400;
 
 /*
     Author : Woojin Oh
-    Date : Feb. 16, 2019
+    Date : Feb. 19, 2019
     Description : PROG1400 ASSIGNMENT 2 - College Accounting Application
     File name : Person.java
 */
