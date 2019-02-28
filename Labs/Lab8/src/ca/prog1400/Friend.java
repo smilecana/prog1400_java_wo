@@ -8,11 +8,27 @@ public class Friend extends Person {
         this.foodToBring = foodToBring;
     }
 
+    @Override
     public String toString() {
+        String friendDetails = "";
         String invited = "";
-        if (!super.isInvited()) {
+
+        if (!isInvited()) {
             invited = "NOT ";
         }
-        return super.getFullName() + " is bringing " + this.foodToBring + ". They are " + invited + "invited to the party.";
+
+        friendDetails += getFullName() + "is bringing " + this.foodToBring + ". They are " + invited + "invited to the party.";
+
+        return friendDetails;
+    }
+
+    @Override
+    public String getFullName() {
+        return "I'm a friend! My full name is " + super.getFullName();
+    }
+
+    @Override
+    public void goToParty() {
+        System.out.println("I am going to the party. Yay!\n" + "Better bring the " + foodToBring);
     }
 }

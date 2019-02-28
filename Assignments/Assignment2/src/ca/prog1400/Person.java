@@ -7,7 +7,7 @@ package ca.prog1400;
     File name : Person.java
 */
 
-public class Person {
+public abstract class Person {
     // Variables or properties
     private String personName;
     private String personAddress;

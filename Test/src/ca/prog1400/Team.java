@@ -1,29 +1,24 @@
 package ca.prog1400;
 
-public class Team {
-    public String getTeamName() {
-        return teamName;
-    }
+import java.security.PublicKey;
+import java.util.Random;
 
-    public void setTeamName(String teamName) {
+public class Team {
+    String teamName;
+
+    // constructor
+    public void Team(String teamName) {
         this.teamName = teamName;
     }
 
-    public Player[] getPlayer() {
-        return player;
+    public String getTeam() {
+        return this.teamName;
     }
 
-    public void setPlayer(Player[] player) {
-        this.player = player;
-    }
-
-    // Variables or properties
-    String teamName;
-    Player[] player;
-
-    // Constuctors
-    public Team(String inputTeamName) {
-        this.teamName = inputTeamName;
+    public double createBudget() {
+        Random rand = new Random();
+        double result = rand.nextDouble() * (100000 - 0) + 0;
+        return result;
     }
 
 
