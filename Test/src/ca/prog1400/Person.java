@@ -4,6 +4,6 @@ public class Person{
     private static String result;
 
     public String Person() {
-        result = "Test for Hana";
+        result = "Second Test for Hana";
     }
 }
