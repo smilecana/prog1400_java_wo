@@ -1,6 +1,25 @@
 package ca.nscc;
 
-public class Hotel extends Building{
+public class Hotel extends Building implements Insurable, Rentable {
+    @Override
+    public void setRate() {
+
+    }
+
+    @Override
+    public void setTerm() {
+
+    }
+
+    @Override
+    public void setRentalRate() {
+        System.out.println("This hotel can be rented for $150/day");
+    }
+
+    @Override
+    public void setDuration() {
+        System.out.println("This hotel can be rented minimum 1day");
+    }
 
     public String franchiseName;
 

@@ -1,7 +1,15 @@
 package ca.nscc;
 
-public class CarDriver extends Operator{
+public class CarDriver extends Operator implements Insurable {
+    @Override
+    public void setRate() {
 
+    }
+
+    @Override
+    public void setTerm() {
+
+    }
     public String provincialMasterNumber;
 
     @Override

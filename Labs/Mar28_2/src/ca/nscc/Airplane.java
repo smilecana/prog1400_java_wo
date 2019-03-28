@@ -1,6 +1,15 @@
 package ca.nscc;
 
-public class Airplane extends Vehicle {
+public class Airplane extends Vehicle implements Insurable{
+    @Override
+    public void setRate() {
+
+    }
+
+    @Override
+    public void setTerm() {
+
+    }
 
     public double wingLength;
 

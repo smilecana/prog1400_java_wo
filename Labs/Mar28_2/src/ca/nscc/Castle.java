@@ -1,6 +1,25 @@
 package ca.nscc;
 
-public class Castle extends Building {
+public class Castle extends Building implements Insurable, Rentable {
+    @Override
+    public void setRate() {
+
+    }
+
+    @Override
+    public void setTerm() {
+
+    }
+
+    @Override
+    public void setRentalRate() {
+        System.out.println("This castle can be rented for $500/day");
+    }
+
+    @Override
+    public void setDuration() {
+        System.out.println("This castle can be rented minimum 3days");
+    }
 
     public int numOfTowers;
 

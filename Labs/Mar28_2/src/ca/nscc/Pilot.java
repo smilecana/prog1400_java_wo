@@ -1,6 +1,15 @@
 package ca.nscc;
 
-public class Pilot extends Operator{
+public class Pilot extends Operator implements Insurable {
+    @Override
+    public void setRate() {
+
+    }
+
+    @Override
+    public void setTerm() {
+
+    }
 
     public int loggedHours;
 
