@@ -1,5 +1,87 @@
 package ca.prog1400;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class ToggleSwing extends JFrame {
+
+    public ToggleSwing() {
+        super();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("Take A Swing!");
+
+        //Create, size and position left panel (blue)
+        JPanel leftPanel = new JPanel();
+        leftPanel.setSize(300, 200);
+        leftPanel.setLocation(0, 50);
+        leftPanel.setBackground(Color.BLUE);
+
+        //Create, size and position right panel (blue)
+        JPanel rightPanel = new JPanel();
+        rightPanel.setSize(300, 200);
+        rightPanel.setLocation(300, 50);
+        rightPanel.setBackground(Color.RED);
+
+        //Create, size and position left label (red text)
+        JLabel leftLabel = new JLabel("This is the left panel");
+        leftLabel.setBounds(50, 50, 200, 30);
+        leftLabel.setFont(new Font("Arial", Font.BOLD, 24));
+        leftLabel.setForeground(Color.RED);
+
+        //Create, size and position right label (blue text)
+        JLabel rightLabel = new JLabel("This is the right panel");
+        rightLabel.setBounds(50, 50, 200, 30);
+        rightLabel.setFont(new Font("Arial", Font.BOLD, 24));
+        rightLabel.setForeground(Color.BLUE);
+
+        //Add each label to their respective panels
+        leftPanel.add(leftLabel);
+        rightPanel.add(rightLabel);
+
+        // Create, size and position left button
+        JButton leftButton = new JButton("Toggle Left");
+        leftButton.setBounds(75, 0, 150, 50);
+
+        // Create, size and position right button
+        JButton rightButton = new JButton("Toggle Left");
+        rightButton.setBounds(375, 0, 150, 50);
+
+        add(leftButton);
+        add(rightButton);
+        add(leftPanel);
+        add(rightPanel);
+
+        leftButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                leftPanel.setVisible(!leftPanel.isVisible());
+            }
+        });
+
+        rightButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                rightPanel.setVisible(!rightPanel.isVisible());
+            }
+        });
+
+        setSize(600, 250);
+        setLayout(null);
+        setVisible(true);
+    }
+
+}
+
+
+
+
+
+
+
+
+/*
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -110,7 +192,7 @@ public class ToggleSwing extends JFrame{
 //        c.gridy = 2;       //third row
 //        pane.add(button, c);
     }
-
+*/
     /**
      * Create the GUI and show it.  For thread safety,
      * this method should be invoked from the
@@ -128,7 +210,7 @@ public class ToggleSwing extends JFrame{
 //        frame.pack();
 //        frame.setVisible(true);
 //    }
-}
+//}
 
 
 
