@@ -1,5 +1,6 @@
 package ca.prog1400.classes;
 
+import ca.prog1400.common.LogToConsole;
 import ca.prog1400.common.LogToFile;
 
 import java.util.ArrayList;
@@ -14,8 +15,10 @@ public class Penguin extends Animal implements ILoggable{
         this.bloodPressure = bloodPressure;
         makeGpsString();
         gpsLogToFile();
+        gpsLogToConsole();
     }
 
+    // make string about gps data for toString()
     @Override
     public void makeGpsString() {
         for(GPS i: getGpsArrayList()) {
@@ -23,14 +26,16 @@ public class Penguin extends Animal implements ILoggable{
         }
     }
 
+    // save gps data to log file
     @Override
     public void gpsLogToFile() {
         LogToFile.LogToFile(getGpsArrayList());
     }
 
+    // output gps data to console for debugging
     @Override
     public void gpsLogToConsole() {
-
+        LogToConsole.LogToConsole(getGpsArrayList());
     }
 
     @Override
@@ -43,10 +48,6 @@ public class Penguin extends Animal implements ILoggable{
 
     public double getBloodPressure() {
         return bloodPressure;
-    }
-
-    public void setBloodPressure(double bloodPressure) {
-        this.bloodPressure = bloodPressure;
     }
 }
 

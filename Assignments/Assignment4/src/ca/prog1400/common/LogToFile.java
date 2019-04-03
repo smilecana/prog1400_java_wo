@@ -13,6 +13,7 @@ public class LogToFile {
     private static String txtFileAsString;
 
     public static void LogToFile(ArrayList<GPS> arrayList) {
+        // filepath
         Path filePath = Paths.get("./src/Files/gpsLog.txt");
         try {
             for(GPS i: arrayList) {

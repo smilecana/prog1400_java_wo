@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public abstract class Animal {
     private static ArrayList<GPS> gpsArrayList = new ArrayList<>();
-    //private GPS gps = new GPS();
     private String species;
     private String sex;
     private int weight;
@@ -16,15 +15,12 @@ public abstract class Animal {
         this.gpsArrayList = gpsArrayList;
     }
 
+    // make string about gps data for tostring()
     public void makeGpsString() {
     }
 
     public static ArrayList<GPS> getGpsArrayList() {
         return gpsArrayList;
-    }
-
-    public static void setGpsArrayList(ArrayList<GPS> gpsArrayList) {
-        Animal.gpsArrayList = gpsArrayList;
     }
 
     public String getSpecies() {

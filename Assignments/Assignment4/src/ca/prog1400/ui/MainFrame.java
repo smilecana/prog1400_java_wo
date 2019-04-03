@@ -20,7 +20,7 @@ public class MainFrame extends JFrame {
         setContentPane(contentPanel);
         contentPanel.setLayout(new CardLayout(0, 0));
 
-        // main panel
+        // make main panel
         mainPanel = new MainPanel();
         contentPanel.add(mainPanel);
         mainPanel.setLayout(null);

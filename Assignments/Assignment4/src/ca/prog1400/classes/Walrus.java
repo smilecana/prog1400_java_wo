@@ -1,5 +1,6 @@
 package ca.prog1400.classes;
 
+import ca.prog1400.common.LogToConsole;
 import ca.prog1400.common.LogToFile;
 
 import java.util.ArrayList;
@@ -14,16 +15,14 @@ public class Walrus extends Animal implements ILoggable{
         this.dentalHealth = dentalHealth;
         makeGpsString();
         gpsLogToFile();
+        gpsLogToConsole();
     }
 
     public String getDentalHealth() {
         return dentalHealth;
     }
 
-    public void setDentalHealth(String dentalHealth) {
-        this.dentalHealth = dentalHealth;
-    }
-
+    // make string about gps data for toString()
     @Override
     public void makeGpsString() {
         for(GPS i: getGpsArrayList()) {
@@ -31,14 +30,16 @@ public class Walrus extends Animal implements ILoggable{
         }
     }
 
+    // save gps data to log file
     @Override
     public void gpsLogToFile() {
         LogToFile.LogToFile(getGpsArrayList());
     }
 
+    // output gps data to console for debugging
     @Override
     public void gpsLogToConsole() {
-
+        LogToConsole.LogToConsole(getGpsArrayList());
     }
 
     @Override

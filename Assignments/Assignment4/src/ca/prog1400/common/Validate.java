@@ -28,6 +28,7 @@ public class Validate {
         return validateCommon(pattern, string);
     }
 
+    //common validate function
     private static boolean validateCommon(Pattern pattern, String string) {
         Matcher matcher = pattern.matcher(string);
         if(!matcher.matches()) {

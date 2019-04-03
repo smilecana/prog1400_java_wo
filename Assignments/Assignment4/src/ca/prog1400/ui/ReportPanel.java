@@ -1,8 +1,6 @@
 package ca.prog1400.ui;
 
-import ca.prog1400.Main;
 import ca.prog1400.common.LogToFile;
-import ca.prog1400.common.SelAnimal;
 
 import javax.swing.*;
 import java.awt.*;

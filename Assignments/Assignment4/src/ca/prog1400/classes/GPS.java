@@ -17,6 +17,7 @@ public class GPS implements ILoggable{
     public void gpsLogToFile() {
     }
 
+    // output gps data to console for debugging
     @Override
     public void gpsLogToConsole() {
         LogToConsole.LogToConsole(getGpsArrayList());
@@ -26,15 +27,7 @@ public class GPS implements ILoggable{
         return latitude;
     }
 
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
-
     public String getLongitude() {
         return longitude;
-    }
-
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
     }
 }

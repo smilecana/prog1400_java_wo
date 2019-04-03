@@ -1,5 +1,6 @@
 package ca.prog1400.classes;
 
+import ca.prog1400.common.LogToConsole;
 import ca.prog1400.common.LogToFile;
 
 import java.util.ArrayList;
@@ -14,16 +15,10 @@ public class Sealion extends Animal implements ILoggable{
         this.numberOfSpots = numberOfSpots;
         makeGpsString();
         gpsLogToFile();
+        gpsLogToConsole();
     }
 
-    public int getNumberOfSpots() {
-        return numberOfSpots;
-    }
-
-    public void setNumberOfSpots(int numberOfSpots) {
-        this.numberOfSpots = numberOfSpots;
-    }
-
+    // make string about gps data for toString()
     @Override
     public void makeGpsString() {
         for(GPS i: getGpsArrayList()) {
@@ -31,14 +26,16 @@ public class Sealion extends Animal implements ILoggable{
         }
     }
 
+    // save gps data to log file
     @Override
     public void gpsLogToFile() {
         LogToFile.LogToFile(getGpsArrayList());
     }
 
+    // output gps data to console for debugging
     @Override
     public void gpsLogToConsole() {
-
+        LogToConsole.LogToConsole(getGpsArrayList());
     }
 
     @Override
@@ -47,5 +44,9 @@ public class Sealion extends Animal implements ILoggable{
         return String.format("Species: " + getSpecies() + "\n" + "Gender: " + getSex() + "\n"
                 + "Weight: " + getWeight() + "Kg\n" + "The number of spots: " + getNumberOfSpots() + "\n" + "GPS Positions:\n"
                 + sealionGpsString + "--------------------------------\n");
+    }
+
+    public int getNumberOfSpots() {
+        return numberOfSpots;
     }
 }

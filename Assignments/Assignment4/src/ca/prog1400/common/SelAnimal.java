@@ -19,6 +19,7 @@ public class SelAnimal {
                 selAnimal = new Walrus(MainPanel.getSelSpecies(), MainPanel.getSelSex(), MainPanel.getSelWeight(), MainPanel.getSelDentalHealth(), MainPanel.getGpsArrayList());
                 break;
         }
+        // reset gpsArrayList
         MainPanel.getGpsArrayList().clear();
     }
 

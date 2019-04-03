@@ -5,7 +5,6 @@ import ca.prog1400.common.SelAnimal;
 import ca.prog1400.common.Validate;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -52,6 +51,18 @@ public class MainPanel extends JPanel {
     private static int selNumSpots;
     private static String selDentalHealth;
     private static String entriesReport = "";
+    private String gpsValidateMessage = "Invalid GPS format:\n"
+            + "Latitude values range from -90 to 90.\n" + "Longitudes values range from -180 to 180.\n"
+            + "Both values must have 7 digits after the decimal.\n"
+            + "Separate latitude and longitude values with a space.\n"
+            + "(-)##.####### (-)(## or ###).#######";
+    private String emptyGpsValidateMessage = "At least one GPS location must be entered.";
+    private String weightValidateMessage = "[Weight]: Invalid input:\n"
+            + "Enter a whole number greater than 0";
+    private String bloodValidateMessage = "[Blood Pressure]: Invalid input:\n"
+            + "Enter a double number greater than 0";
+    private String spotValidateMessage = "[The number of Spots]: Invalid input:\n"
+            + "Enter a whole number greater than 0";
 
     private static ReportPanel reportPanel;
 
@@ -164,11 +175,7 @@ public class MainPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 // validate for gps
                 if (!Validate.validateGPS(addGpsTextArea.getText())) {
-                    JOptionPane.showMessageDialog(null, "Invalid GPS format:\n"
-                            + "Latitude values range from -90 to 90.\n" + "Longitudes values range from -180 to 180.\n"
-                            + "Both values must have 7 digits after the decimal.\n"
-                            + "Separate latitude and longitude values with a space.\n"
-                            + "(-)##.####### (-)(## or ###).#######", "Message", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, gpsValidateMessage, "Message", JOptionPane.WARNING_MESSAGE);
                 } else {
                     // store gps data in array list
                     gpsTextArea.setText("");
@@ -205,20 +212,18 @@ public class MainPanel extends JPanel {
                 selSex  = genderDropBox.getSelectedItem().toString();
 
                 if (gpsTextArea.getText().length() == 0) {
-                    JOptionPane.showMessageDialog(null, "At least one GPS location must be entered.", "Message", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, emptyGpsValidateMessage, "Message", JOptionPane.WARNING_MESSAGE);
                 } else {
                     // validate for weight
                     if (!Validate.validateWholeNumber(weightTextArea.getText())) {
-                        JOptionPane.showMessageDialog(null, "[Weight]: Invalid input:\n"
-                                + "Enter a whole number greater than 0", "Message", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, weightValidateMessage, "Message", JOptionPane.WARNING_MESSAGE);
                     } else {
                         selWeight = Integer.parseInt(weightTextArea.getText());
                         switch (selSpecies) {
                             case "Penguin":
                                 // validate for blood pressure
                                 if (!Validate.validateDouble(bloodTextArea.getText())) {
-                                    JOptionPane.showMessageDialog(null, "[Blood Pressure]: Invalid input:\n"
-                                            + "Enter a double number greater than 0", "Message", JOptionPane.WARNING_MESSAGE);
+                                    JOptionPane.showMessageDialog(null, bloodValidateMessage, "Message", JOptionPane.WARNING_MESSAGE);
                                 } else {
                                     selBloodPressure = Double.parseDouble(bloodTextArea.getText());
                                     makeAnimalObject();
@@ -227,8 +232,7 @@ public class MainPanel extends JPanel {
                             case "Sea Lion":
                                 // validate for the number of spot
                                 if (!Validate.validateWholeNumber(spotTextArea.getText())) {
-                                    JOptionPane.showMessageDialog(null, "[The number of Spots]: Invalid input:\n"
-                                            + "Enter a whole number greater than 0", "Message", JOptionPane.WARNING_MESSAGE);
+                                    JOptionPane.showMessageDialog(null, spotValidateMessage, "Message", JOptionPane.WARNING_MESSAGE);
                                 } else {
                                     selNumSpots = Integer.parseInt(spotTextArea.getText());
                                     makeAnimalObject();
